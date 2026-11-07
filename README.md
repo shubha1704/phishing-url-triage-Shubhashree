@@ -18,9 +18,9 @@ confusion matrix and cost. Models are loaded from disk; nothing is retrained on 
 - **Split:** 10,000 stratified pages are held out as `test_data.csv`; the other 225,795 are used for training. 3-fold `GridSearchCV` (scoring = MCC) is run on the training portion only. SVM and KNN are trained on a stratified 30,000-row sample for speed; the other three use all training rows.
 
 ## c. GitHub repository link
-<PASTE YOUR REPO URL>
+https://github.com/shubha1704/phishing-url-triage-Shubhashree
 
-Live app: <PASTE YOUR STREAMLIT URL>
+Live app: https://phishing-url-triage-sp.streamlit.app/
 
 ```
 app.py            Streamlit app
@@ -45,17 +45,16 @@ Metrics are on the 10,000-row `test_data.csv` with a 0.5 threshold; Precision, R
 ### Observations
 | ML Model Name | Observation about model performance |
 |---|---|
-| Logistic Regression | <write yours> |
-| Decision Tree | <write yours> |
-| KNN | <write yours> |
-| Naive Bayes | <write yours> |
-| Support Vector Machine | <write yours> |
-| **Overall winner** | <write yours> |
+| Logistic Regression | This is the best model. It scored the highest overall (0.9998) and missed almost no phishing pages. The data is easy to separate, so a simple model works very well. |
+| Decision Tree | Almost as good (0.9996). It never marked a safe page as phishing, but it missed some of the phishing pages. It works by asking simple yes or no questions, which suits this data. |
+| KNN | The weakest of the five (0.9971). It missed the most phishing pages, about 14 out of roughly 4,280. It is slow on big data, so I trained it on 30,000 rows, and that likely held it back. |
+| Naive Bayes | A little behind the best models (0.9978). It treats every feature as unrelated to the others, but things like URL length and digit count are related, so it loses a little accuracy. |
+| Support Vector Machine | Very strong (0.9994). It caught every phishing page, but it wrongly blocked a few safe pages. I trained it on 30,000 rows. |
+| **Overall winner** | Logistic Regression, because it has the best overall score. All five models are very close, so the difference is tiny. If catching every phishing page matters most, the Support Vector Machine is the safest choice. |
 
 ## How to run
 ```bash
 pip install -r requirements.txt
-# put PhiUSIIL_Phishing_URL_Dataset.csv in data/
 python train.py
 streamlit run app.py
 ```
