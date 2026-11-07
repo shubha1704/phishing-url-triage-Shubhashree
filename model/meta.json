@@ -1,0 +1,90 @@
+{
+  "class_names": [
+    "Legitimate",
+    "Phishing"
+  ],
+  "n_train": 225795,
+  "n_test": 10000,
+  "slow_model_rows": 30000,
+  "best_params": {
+    "Logistic Regression": {
+      "C": 1
+    },
+    "Decision Tree": {
+      "criterion": "entropy",
+      "max_depth": 16,
+      "min_samples_leaf": 2
+    },
+    "KNN": {
+      "n_neighbors": 5,
+      "weights": "distance"
+    },
+    "Naive Bayes": {
+      "var_smoothing": 1e-06
+    },
+    "Support Vector Machine": {
+      "estimator__C": 10,
+      "estimator__gamma": 0.01
+    }
+  },
+  "seed": 3110,
+  "raw_columns": [
+    "URL",
+    "URLLength",
+    "Domain",
+    "DomainLength",
+    "IsDomainIP",
+    "TLD",
+    "URLSimilarityIndex",
+    "CharContinuationRate",
+    "TLDLegitimateProb",
+    "URLCharProb",
+    "TLDLength",
+    "NoOfSubDomain",
+    "HasObfuscation",
+    "NoOfObfuscatedChar",
+    "ObfuscationRatio",
+    "NoOfLettersInURL",
+    "LetterRatioInURL",
+    "NoOfDegitsInURL",
+    "DegitRatioInURL",
+    "NoOfEqualsInURL",
+    "NoOfQMarkInURL",
+    "NoOfAmpersandInURL",
+    "NoOfOtherSpecialCharsInURL",
+    "SpacialCharRatioInURL",
+    "IsHTTPS",
+    "LineOfCode",
+    "LargestLineLength",
+    "HasTitle",
+    "Title",
+    "DomainTitleMatchScore",
+    "URLTitleMatchScore",
+    "HasFavicon",
+    "Robots",
+    "IsResponsive",
+    "NoOfURLRedirect",
+    "NoOfSelfRedirect",
+    "HasDescription",
+    "NoOfPopup",
+    "NoOfiFrame",
+    "HasExternalFormSubmit",
+    "HasSocialNet",
+    "HasSubmitButton",
+    "HasHiddenFields",
+    "HasPasswordField",
+    "Bank",
+    "Pay",
+    "Crypto",
+    "HasCopyrightInfo",
+    "NoOfImage",
+    "NoOfCSS",
+    "NoOfJS",
+    "NoOfSelfRef",
+    "NoOfEmptyRef",
+    "NoOfExternalRef"
+  ],
+  "versions": {
+    "scikit-learn": "1.9.1"
+  }
+}
